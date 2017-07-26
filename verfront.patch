@@ -1,0 +1,755 @@
+Index: .idea/jsLibraryMappings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/jsLibraryMappings.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ .idea/jsLibraryMappings.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="JavaScriptLibraryMappings">
++    <file url="file://$PROJECT_DIR$" libraries="{vermanage/node_modules}" />
++    <includedPredefinedLibrary name="ECMAScript 6" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ .idea/misc.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="JavaScriptSettings">
++    <option name="languageLevel" value="ES6" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ .idea/modules.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/vermanage.iml" filepath="$PROJECT_DIR$/.idea/vermanage.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ .idea/vcs.xml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vermanage.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vermanage.iml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ .idea/vermanage.iml	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- README.md	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ README.md	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -37,7 +37,6 @@
+ 	|           |-- BaseTable.vue        // 基础表格
+ 	|           |-- Login.vue          	 // 登录
+ 	|           |-- Markdown.vue         // markdown组件
+-	|           |-- Readme.vue           // 自述组件
+ 	|           |-- Upload.vue           // 图片上传
+ 	|           |-- VueEditor.vue        // 富文本编辑器
+ 	|           |-- VueTable.vue         // vue表格组件
+\ No newline at end of file
+Index: build/webpack.base.conf.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build/webpack.base.conf.js	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ build/webpack.base.conf.js	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -34,6 +34,15 @@
+   },
+   module: {
+     rules: [
++      // {
++      //   test: /\.(js|vue)$/,
++      //   loader: 'eslint-loader',
++      //   enforce: 'pre',
++      //   include: [resolve('src'), resolve('test')],
++      //   options: {
++      //     formatter: require('eslint-friendly-formatter')
++      //   }
++      // },
+       {
+         test: /\.vue$/,
+         loader: 'vue-loader'
+Index: config/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- config/index.js	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ config/index.js	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -35,6 +35,13 @@
+                     '/api':''
+                 }
+             },
++            '/queryListJson':{
++                target:'http://localhost:9003',
++                changeOrigin:true,
++                // pathRewrite:{
++                //     '/api':''
++                // }
++            },
+             '/ms':{
+                 target: 'https://www.easy-mock.com/mock/592501a391470c0ac1fab128',
+                 changeOrigin: true
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- index.html	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ index.html	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -4,8 +4,8 @@
+     <meta charset="utf-8">
+     <title>manage-system</title>
+     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+-    <meta name="keywords" content="vue.js, wms, vue2, 后台模板, 管理系统, element" />
+-    <meta name="description" content="基于Vue2 + Element UI 的后台管理系统解决方案" />
++    <meta name="keywords" content="vue.js, wms, vue2, svn,svn版本发布, element" />
++    <meta name="description" content="版本发布,持续集成" />
+ </head>
+ <body>
+ <div id="app"></div>
+Index: src/App.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/App.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/App.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -5,6 +5,6 @@
+ </template>
+ <style>
+     @import "../static/css/main.css";
+-    @import "../static/css/color-dark.css";     /*深色主题*/
+-    /*@import "../static/css/theme-green/color-green.css";   浅绿色主题*/
++    /*@import "../static/css/color-dark.css";     深色主题*/
++    @import "../static/css/theme-green/color-green.css";   /*浅绿色主题*/
+ </style>
+\ No newline at end of file
+Index: src/components/common/Header.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/common/Header.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/components/common/Header.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -1,6 +1,6 @@
+ <template>
+     <div class="header">
+-        <div class="logo">后台管理系统</div>
++        <div class="logo">版本管理系统</div>
+         <div class="user-info">
+             <el-dropdown trigger="click" @command="handleCommand">
+                 <span class="el-dropdown-link">
+@@ -18,7 +18,7 @@
+     export default {
+         data() {
+             return {
+-                name: 'linxin'
++                name: 'liang'
+             }
+         },
+         computed:{
+Index: src/components/common/Sidebar.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/common/Sidebar.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/components/common/Sidebar.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -1,6 +1,6 @@
+ <template>
+     <div class="sidebar">
+-        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
++        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" unique-opened router>
+             <template v-for="item in items">
+                 <template v-if="item.subs">
+                     <el-submenu :index="item.index">
+@@ -26,8 +26,22 @@
+                 items: [
+                     {
+                         icon: 'el-icon-setting',
+-                        index: 'readme',
+-                        title: '自述'
++                        index: '1',
++                        title: '设置',
++                        subs: [
++                            {
++                                index: 'svnst',
++                                title: 'svn设置'
++                            },
++                            {
++                                index: 'ftpst',
++                                title: 'ftp设置'
++                            },
++                            {
++                                index: 'dirst',
++                                title: '目录设置'
++                            }
++                        ]
+                     },
+                     {
+                         icon: 'el-icon-menu',
+Index: src/components/page/BaseTable.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/BaseTable.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/components/page/BaseTable.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -17,11 +17,11 @@
+         </div>
+         <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
+             <el-table-column type="selection" width="55"></el-table-column>
+-            <el-table-column prop="date" label="日期" sortable width="150">
++            <el-table-column prop="pcode" label="代码" sortable width="150">
+             </el-table-column>
+-            <el-table-column prop="name" label="姓名" width="120">
++            <el-table-column prop="pname" label="名字" width="120">
+             </el-table-column>
+-            <el-table-column prop="address" label="地址" :formatter="formatter">
++            <el-table-column prop="ptype" label="类型" :formatter="formatter">
+             </el-table-column>
+             <el-table-column label="操作" width="180">
+                 <template scope="scope">
+@@ -43,6 +43,7 @@
+ </template>
+ 
+ <script>
++    import axios from 'axios';
+     export default {
+         data() {
+             return {
+@@ -71,7 +72,7 @@
+                         }
+                     }
+                     if(!is_del){
+-                        if(d.address.indexOf(self.select_cate) > -1 && 
++                        if(d.address.indexOf(self.select_cate) > -1 &&
+                             (d.name.indexOf(self.select_word) > -1 ||
+                             d.address.indexOf(self.select_word) > -1)
+                         ){
+@@ -89,10 +90,10 @@
+             getData(){
+                 let self = this;
+                 if(process.env.NODE_ENV === 'development'){
+-                    self.url = '/ms/table/list';
++                    //self.url = '/ms/table/list';
+                 };
+-                self.$axios.post(self.url, {page:self.cur_page}).then((res) => {
+-                    self.tableData = res.data.list;
++                axios.post("/queryListJson", {"condition":{"pcode":"","pname":"SVN用户名","sortColumns":""},"currentPage":2,"data":[],"limitIndex":10,"perPageRows":2,"showPages":true,"startIndex":0,"totalCount":0,"totalPages":1}).then((res) => {
++                    self.tableData = res.data;
+                 })
+             },
+             search(){
+\ No newline at end of file
+Index: src/components/page/Login.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/Login.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/components/page/Login.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -1,6 +1,6 @@
+ <template>
+     <div class="login-wrap">
+-        <div class="ms-title">后台管理系统</div>
++        <div class="ms-title">版本管理系统</div>
+         <div class="ms-login">
+             <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="demo-ruleForm">
+                 <el-form-item prop="username">
+@@ -12,7 +12,6 @@
+                 <div class="login-btn">
+                     <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
+                 </div>
+-                <p style="font-size:12px;line-height:30px;color:#999;">Tips : 用户名和密码随便填。</p>
+             </el-form>
+         </div>
+     </div>
+\ No newline at end of file
+Index: src/components/page/Readme.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/Readme.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/components/page/Readme.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -8,31 +8,7 @@
+         <div class="ms-doc">
+             <h3>README.md</h3>
+             <article>
+-                <h1>manage-system</h1>
+-                <p>基于Vue.js 2.x系列 + Element UI 的后台管理系统解决方案</p>
+-                <h2>前言</h2>
+-                <p>之前在公司用了Vue + Element组件库做了个后台管理系统，基本很多组件可以直接引用组件库的，但是也有一些需求无法满足。像图片裁剪上传、富文本编辑器、图表等这些在后台管理系统中很常见的功能，就需要引用其他的组件才能完成。从寻找组件，到使用组件的过程中，遇到了很多问题，也积累了宝贵的经验。所以我就把开发这个后台管理系统的经验，总结成这个后台管理系统解决方案。</p>
+-                <p>该方案作为一套多功能的后台框架模板，适用于绝大部分的后台管理系统（Web Management System）开发。基于vue.js,使用vue-cli脚手架快速生成项目目录，引用Element UI组件库，方便开发快速简洁好看的组件。分离颜色样式，支持手动切换主题色，而且很方便使用自定义主题色。</p>
+-                <h2>功能</h2>
+-                <el-checkbox disabled checked>Element UI</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>登录/注销</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>表格</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>表单</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>图表</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>富文本编辑器</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>markdown编辑器</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>图片拖拽/裁剪上传</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>支持切换主题色</el-checkbox>
+-                <br>
+-                <el-checkbox disabled checked>列表拖拽排序</el-checkbox>
++
+                 <br>
+             </article>
+         </div>
+\ No newline at end of file
+Index: src/components/page/VueTable.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/VueTable.vue	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/components/page/VueTable.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -6,10 +6,6 @@
+                 <el-breadcrumb-item>Vue表格组件</el-breadcrumb-item>
+             </el-breadcrumb>
+         </div>
+-        <div class="plugins-tips">
+-            vue-datasource：一个用于动态创建表格的vue.js服务端组件。
+-            访问地址：<a href="https://github.com/coderdiaz/vue-datasource" target="_blank">vue-datasource</a>
+-        </div>
+         <datasource language="en" :table-data="getData" :columns="columns" :pagination="information.pagination"
+                 :actions="actions"
+                 v-on:change="changePage"
+@@ -24,27 +20,28 @@
+         data: function(){
+             const self = this;
+             return {
+-                url: './static/datasource.json',
++                url: '/queryListJson',
+                 information: {
+                     pagination:{},
+                     data:[]
+                 },
++                queryInfo: {
++                    currentPage:1,
++                    perPageRows:15,
++                    condition:{"pname":"SVN用户名"}
++                },
+                 columns: [
+                     {
+-                        name: 'Id',
+-                        key: 'id',
++                        name: '代码',
++                        key: 'pcode',
+                     },
+                     {
+-                        name: 'Name',
+-                        key: 'name',
++                        name: '名称',
++                        key: 'pname',
+                     },
+                     {
+-                        name: 'email',
+-                        key: 'email',
+-                    },
+-                    {
+-                        name: 'ip',
+-                        key: 'ip',
++                        name: '类型',
++                        key: 'ptype',
+                     }
+                 ],
+                 actions: [
+@@ -52,7 +49,7 @@
+                         text: 'Click',
+                         class: 'btn-primary',
+                         event(e, row) {
+-                            self.$message('选中的行数： ' + row.row.id);
++                            self.$message('选中的行数： ' + row.row.pcode);
+                         }
+                     }
+                 ],
+@@ -64,28 +61,38 @@
+         },
+         methods: {
+             changePage(values) {
+-                this.information.pagination.per_page = values.perpage;
+-                this.information.data = this.information.data;
++                this.information.pagination.currentPage = values.page;
++                this.information.pagination.perPageRows = values.perpage;
++                this.queryInfo.currentPage = values.page;
++                this.queryInfo.perPageRows = values.perpage;
++                //this.information.data = this.information.data;
++                axios.post(this.url, this.queryInfo).then( (res) => {
++                    this.information = res.data;
++                })
+             },
+             onSearch(searchQuery) {
+                 this.query = searchQuery;
++                axios.post(this.url, this.queryInfo).then( (res) => {
++                    this.information = res.data;
++                })
+             }
+         },
+         computed:{
+             getData(){
+                 const self = this;
+                 return self.information.data.filter(function (d) {
+-                    if(d.name.indexOf(self.query) > -1){
+-                        return d;
++                    return d;
+-                    }
++                    //if(d.name.indexOf(self.query) > -1){
++
++                    //}
+                 })
+             }
+         },
+         beforeMount(){
+             if(process.env.NODE_ENV === 'development'){
+-                this.url = '/ms/table/source';
++                this.url = '/queryListJson';
+             };
+-            axios.get(this.url).then( (res) => {
++            axios.post(this.url, this.queryInfo).then( (res) => {
+                 this.information = res.data;
+             })
+         }
+\ No newline at end of file
+Index: src/components/page/st/DirSetting.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/st/DirSetting.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ src/components/page/st/DirSetting.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,56 @@
++<template>
++    <div>
++        <div class="crumbs">
++            <el-breadcrumb separator="/">
++                <el-breadcrumb-item><i class="el-icon-date"></i> 设置</el-breadcrumb-item>
++                <el-breadcrumb-item>Svn设置</el-breadcrumb-item>
++            </el-breadcrumb>
++        </div>
++        <div class="form-box">
++            <el-form ref="form" :model="form" label-width="80px">
++                <el-form-item label="应用系统">
++                    <el-checkbox-group v-model="form.systemcode">
++                        <el-checkbox label="承保" name="systemcode"></el-checkbox>
++                        <el-checkbox label="理赔" name="systemcode"></el-checkbox>
++                        <el-checkbox label="双核" name="systemcode"></el-checkbox>
++                        <el-checkbox label="收付" name="systemcode"></el-checkbox>
++                    </el-checkbox-group>
++                </el-form-item>
++                <el-form-item label="Svn 地址">
++                    <el-input v-model="form.svnUrl"></el-input>
++                </el-form-item>
++                <el-form-item label="Svn 用户">
++                    <el-input v-model="form.svnUser"></el-input>
++                </el-form-item>
++                <el-form-item prop="password" v-model="form.svnPwd" label="Svn 密码">
++                    <el-input type="password"></el-input>
++                </el-form-item>
++                <el-form-item>
++                    <el-button type="primary" @click="onSubmit">提交</el-button>
++                    <el-button>取消</el-button>
++                </el-form-item>
++            </el-form>
++        </div>
++
++    </div>
++</template>
++
++<script>
++    export default {
++        data: function(){
++            return {
++                form: {
++                    svnUrl: '',
++                    svnUser: '',
++                    svnPwd: '',
++                    systemcode: ['承保'],
++                }
++            }
++        },
++        methods: {
++            onSubmit() {
++                this.$message.success('提交成功！');
++            }
++        }
++    }
++</script>
+\ No newline at end of file
+Index: src/components/page/st/FtpSetting.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/st/FtpSetting.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ src/components/page/st/FtpSetting.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,76 @@
++<template>
++    <div>
++        <div class="crumbs">
++            <el-breadcrumb separator="/">
++                <el-breadcrumb-item><i class="el-icon-date"></i> 设置</el-breadcrumb-item>
++                <el-breadcrumb-item>Ftp设置</el-breadcrumb-item>
++            </el-breadcrumb>
++        </div>
++        <div class="form-box">
++            <el-form ref="form" :model="form" label-width="80px">
++                <el-form-item label="应用系统">
++                    <el-checkbox-group v-model="form.systemcode">
++                        <el-checkbox label="承保" name="systemcode"></el-checkbox>
++                        <el-checkbox label="理赔" name="systemcode"></el-checkbox>
++                        <el-checkbox label="双核" name="systemcode"></el-checkbox>
++                        <el-checkbox label="收付" name="systemcode"></el-checkbox>
++                    </el-checkbox-group>
++                </el-form-item>
++                <el-form-item label="Ftp 地址">
++                    <el-input v-model="form.ftpUrl"></el-input>
++                </el-form-item>
++                <el-form-item label="协议">
++                    <el-select v-model="form.ftpProtocl" placeholder="请选择">
++                        <el-option key="ftp" label="Ftp" value="ftp"></el-option>
++                        <el-option key="sftp" label="Sftp" value="sftp"></el-option>
++                    </el-select>
++                </el-form-item>
++                <el-form-item label="端口">
++                    <el-input v-model="form.ftpPort"></el-input>
++                </el-form-item>
++                <el-form-item label="Ftp 用户">
++                    <el-input v-model="form.ftpUser"></el-input>
++                </el-form-item>
++                <el-form-item prop="password" v-model="form.ftpPwd" label="Ftp 密码">
++                    <el-input type="password"></el-input>
++                </el-form-item>
++                <el-form-item label="上传服务目录">
++                    <el-input v-model="form.ftpUpDir"></el-input>
++                </el-form-item>
++                <el-form-item label="本地存放目录">
++                    <el-input v-model="form.ftpUpDir"></el-input>
++                </el-form-item>
++                <el-form-item label="服务器执行脚本">
++                    <el-input v-model="form.ftpSh"></el-input>
++                </el-form-item>
++                <el-form-item>
++                    <el-button type="primary" @click="onSubmit">提交</el-button>
++                    <el-button>取消</el-button>
++                </el-form-item>
++            </el-form>
++        </div>
++
++    </div>
++</template>
++
++<script>
++    export default {
++        data: function(){
++            return {
++                form: {
++                    ftpUrl: '',
++                    ftpProt: '',
++                    ftpProtocl: '',
++                    ftpUser: '',
++                    ftpPwd: '',
++                    systemcode: ['承保'],
++                }
++            }
++        },
++        methods: {
++            onSubmit() {
++                this.$message.success('提交成功！');
++            }
++        }
++    }
++</script>
+\ No newline at end of file
+Index: src/components/page/st/SvnSetting.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/components/page/st/SvnSetting.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
++++ src/components/page/st/SvnSetting.vue	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -0,0 +1,63 @@
++<template>
++    <div>
++        <div class="crumbs">
++            <el-breadcrumb separator="/">
++                <el-breadcrumb-item><i class="el-icon-date"></i> 设置</el-breadcrumb-item>
++                <el-breadcrumb-item>Svn设置</el-breadcrumb-item>
++            </el-breadcrumb>
++        </div>
++        <div class="form-box">
++            <el-form ref="form" :model="form" label-width="80px" id="fm">
++                <el-form-item label="应用系统">
++                    <el-checkbox-group v-model="form.systemcode">
++                        <el-checkbox label="承保" name="systemcode"></el-checkbox>
++                        <el-checkbox label="理赔" name="systemcode"></el-checkbox>
++                        <el-checkbox label="双核" name="systemcode"></el-checkbox>
++                        <el-checkbox label="收付" name="systemcode"></el-checkbox>
++                    </el-checkbox-group>
++                </el-form-item>
++                <el-form-item label="Svn 地址">
++                    <el-input v-model="form.svnUrl"></el-input>
++                </el-form-item>
++                <el-form-item label="Svn 用户">
++                    <el-input v-model="form.svnUser"></el-input>
++                </el-form-item>
++                <el-form-item prop="password" v-model="form.svnPwd" label="Svn 密码">
++                    <el-input type="password"></el-input>
++                </el-form-item>
++                <el-form-item>
++                    <el-button type="primary" @click="submitForm()">提交</el-button>
++                    <el-button>取消</el-button>
++                </el-form-item>
++            </el-form>
++        </div>
++
++    </div>
++</template>
++
++<script>
++    export default {
++        data: function(){
++            return {
++                form: {
++                    svnUrl: '',
++                    svnUser: '',
++                    svnPwd: '',
++                    systemcode: ['承保'],
++                }
++            }
++        },
++        methods: {
++            submitForm() {
++                this.$ajax({
++                    method: 'post',
++                    url: '/setting/svnSave',
++                    data: {
++                        firstName: 'Fred'
++                    }
++                })
++                this.$message.success('提交成功！');
++            }
++        }
++    }
++</script>
+\ No newline at end of file
+Index: src/main.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main.js	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/main.js	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -1,14 +1,13 @@
+-import Vue from 'vue';
+-import App from './App';
+-import router from './router';
+-import axios from 'axios';
+-import ElementUI from 'element-ui';
+-import 'element-ui/lib/theme-default/index.css';    // 默认主题
+-// import '../static/css/theme-green/index.css';       // 浅绿色主题
++import Vue from 'vue'
++import App from './App'
++import router from './router'
++import axios from 'axios'
++import ElementUI from 'element-ui'
++//import 'element-ui/lib/theme-default/index.css'    // 默认主题
++import '../static/css/theme-green/index.css'       // 浅绿色主题
+ import "babel-polyfill";
+-
++Vue.prototype.$ajax = axios
+ Vue.use(ElementUI);
+-Vue.prototype.$axios = axios;
+ new Vue({
+     router,
+     render: h => h(App)
+\ No newline at end of file
+Index: src/router/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/router/index.js	(revision 56b37afd5ea1761dd8640b1260df429f0230e8c7)
++++ src/router/index.js	(revision d7bd8673eec6592a2db01db95ef59a0cdaf565d5)
+@@ -18,6 +18,18 @@
+                     component: resolve => require(['../components/page/Readme.vue'], resolve)
+                 },
+                 {
++                    path: '/svnst',
++                        component: resolve => require(['../components/page/st/SvnSetting.vue'], resolve)
++                },
++                {
++                    path: '/ftpst',
++                        component: resolve => require(['../components/page/st/FtpSetting.vue'], resolve)
++                },
++                {
++                    path: '/dirst',
++                        component: resolve => require(['../components/page/st/DirSetting.vue'], resolve)
++                },
++                {
+                     path: '/basetable',
+                     component: resolve => require(['../components/page/BaseTable.vue'], resolve)
+                 },
