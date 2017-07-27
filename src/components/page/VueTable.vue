@@ -6,29 +6,69 @@
                 <el-breadcrumb-item>Vue表格组件</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
-        <datasource language="en" :table-data="getData" :columns="columns" :pagination="information.pagination"
-                :actions="actions"
-                v-on:change="changePage"
-                v-on:searching="onSearch"></datasource>
+        <el-table
+                :data="resObj.data"
+                style="width: 100%"
+                :row-class-name="tableRowClassName">
+            <el-table-column
+                    prop="pcode"
+                    label="日期"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="pname"
+                    label="姓名"
+                    width="180">
+            </el-table-column>
+            <el-table-column
+                    prop="ptype"
+                    label="地址">
+            </el-table-column>
+        </el-table>
+        <div class="block">
+            <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :page-sizes="[5,10, 20, 50, 100,500]"
+                    :page-size="queryInfo.perPageRows"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="resObj.pagination.total">
+            </el-pagination>
+        </div>
     </div>
 </template>
+<style>
+    .el-table .info-row {
+        background: #c9e5f5;
+    }
+
+    .el-table .positive-row {
+        background: #e2f0e4;
+    }
+    div.block{
+        padding-right: 5px;
+    }
+</style>
 
 <script>
     import axios from 'axios';
-    import Datasource from 'vue-datasource';
     export default {
         data: function(){
             const self = this;
             return {
                 url: '/queryListJson',
-                information: {
-                    pagination:{},
-                    data:[]
-                },
                 queryInfo: {
                     currentPage:1,
-                    perPageRows:15,
+                    perPageRows:5,
                     condition:{"pname":"SVN用户名"}
+                },
+                resObj:{
+                    success:false,
+                    retMsg:"",
+                    data:[],
+                    pagination:{
+                        total:0
+                    }
                 },
                 columns: [
                     {
@@ -57,43 +97,45 @@
             }
         },
         components: {
-            Datasource
+            //Datasource
         },
         methods: {
-            changePage(values) {
-                this.information.pagination.currentPage = values.page;
-                this.information.pagination.perPageRows = values.perpage;
-                this.queryInfo.currentPage = values.page;
-                this.queryInfo.perPageRows = values.perpage;
-                //this.information.data = this.information.data;
+            tableRowClassName(row, index) {
+                if (index === 1) {
+                    return 'info-row';
+                } else if (index === 3) {
+                    return 'positive-row';
+                }
+                return '';
+            },
+            handleSizeChange(val) {
+                console.log(`每页 ${val} 条`);
+                this.queryInfo.perPageRows = val;
                 axios.post(this.url, this.queryInfo).then( (res) => {
-                    this.information = res.data;
+                    this.tbData = res.data.data;
                 })
             },
-            onSearch(searchQuery) {
-                this.query = searchQuery;
+            handleCurrentChange(val) {
+                console.log(`当前页: ${val}`);
+                this.queryInfo.currentPage = val;
                 axios.post(this.url, this.queryInfo).then( (res) => {
-                    this.information = res.data;
+                    this.resObj = res.data;
+                })
+            },
+            turnPage(){
+                axios.post(this.url, this.queryInfo).then( (res) => {
+                    this.resObj = res.data;
                 })
             }
         },
         computed:{
-            getData(){
-                const self = this;
-                return self.information.data.filter(function (d) {
-                    return d;
-                    //if(d.name.indexOf(self.query) > -1){
-
-                    //}
-                })
-            }
         },
         beforeMount(){
             if(process.env.NODE_ENV === 'development'){
                 this.url = '/queryListJson';
             };
             axios.post(this.url, this.queryInfo).then( (res) => {
-                this.information = res.data;
+                this.resObj = res.data;
             })
         }
     }
