@@ -11,18 +11,18 @@
                 style="width: 100%"
                 :row-class-name="tableRowClassName">
             <el-table-column
-                    prop="pcode"
-                    label="日期"
+                    prop="codecode"
+                    label="配置代码"
                     width="180">
             </el-table-column>
             <el-table-column
-                    prop="pname"
-                    label="姓名"
+                    prop="codename"
+                    label="配置名称"
                     width="180">
             </el-table-column>
             <el-table-column
-                    prop="ptype"
-                    label="地址">
+                    prop="codetype"
+                    label="配置类型">
             </el-table-column>
         </el-table>
         <div class="block">
@@ -56,11 +56,11 @@
         data: function(){
             const self = this;
             return {
-                url: '/queryListJson',
+                url: '/tconfig/queryList',
                 queryInfo: {
                     currentPage:1,
                     perPageRows:5,
-                    condition:{"pname":"SVN用户名"}
+                    condition:{"codename":"SVN用户名"}
                 },
                 resObj:{
                     success:false,
@@ -73,15 +73,15 @@
                 columns: [
                     {
                         name: '代码',
-                        key: 'pcode',
+                        key: 'codecode',
                     },
                     {
                         name: '名称',
-                        key: 'pname',
+                        key: 'codename',
                     },
                     {
                         name: '类型',
-                        key: 'ptype',
+                        key: 'codetype',
                     }
                 ],
                 actions: [
@@ -132,7 +132,7 @@
         },
         beforeMount(){
             if(process.env.NODE_ENV === 'development'){
-                this.url = '/queryListJson';
+                this.url = '/tconfig/queryList';
             };
             axios.post(this.url, this.queryInfo).then( (res) => {
                 this.resObj = res.data;
@@ -140,5 +140,3 @@
         }
     }
 </script>
-
-<style src="../../../static/css/datasource.css"></style>

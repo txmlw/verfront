@@ -15,13 +15,13 @@
             <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
             <el-button type="primary" icon="search" @click="search">搜索</el-button>
         </div>
-        <el-table :data="data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
+        <el-table :data="resObj.data" border style="width: 100%" ref="multipleTable" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55"></el-table-column>
-            <el-table-column prop="pcode" label="代码" sortable width="150">
+            <el-table-column prop="codecode" label="代码" sortable width="150">
             </el-table-column>
-            <el-table-column prop="pname" label="名字" width="120">
+            <el-table-column prop="codename" label="名字" width="120">
             </el-table-column>
-            <el-table-column prop="ptype" label="类型" :formatter="formatter">
+            <el-table-column prop="codetype" label="类型" :formatter="formatter">
             </el-table-column>
             <el-table-column label="操作" width="180">
                 <template scope="scope">
@@ -34,9 +34,12 @@
         </el-table>
         <div class="pagination">
             <el-pagination
-                    @current-change ="handleCurrentChange"
-                    layout="prev, pager, next"
-                    :total="1000">
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :page-sizes="[5,10, 20, 50, 100,500]"
+                    :page-size="queryInfo.perPageRows"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="resObj.pagination.total">
             </el-pagination>
         </div>
     </div>
@@ -47,14 +50,27 @@
     export default {
         data() {
             return {
-                url: './static/vuetable.json',
+                url: '/tconfig/queryList',
                 tableData: [],
                 cur_page: 1,
                 multipleSelection: [],
                 select_cate: '',
                 select_word: '',
                 del_list: [],
-                is_search: false
+                is_search: false,
+                queryInfo: {
+                    currentPage:1,
+                    perPageRows:5,
+                    condition:{"codename":"SVN用户名"}
+                },
+                resObj:{
+                    success:false,
+                    retMsg:"",
+                    data:[],
+                    pagination:{
+                        total:0
+                    }
+                }
             }
         },
         created(){
@@ -125,6 +141,11 @@
             handleSelectionChange(val) {
                 this.multipleSelection = val;
             }
+        },
+        beforeMount(){
+            axios.post(this.url, this.queryInfo).then( (res) => {
+                this.resObj = res.data;
+            })
         }
     }
 </script>

@@ -26,6 +26,25 @@
                 items: [
                     {
                         icon: 'el-icon-setting',
+                        index: '0',
+                        title: '权限管理',
+                        subs: [
+                            {
+                                index: '/power/role_page',
+                                title: '角色维护'
+                            },
+                            {
+                                index: '/power/role_add',
+                                title: '新增角色'
+                            },
+                            {
+                                index: '/power/role_resource',
+                                title: '角色授权'
+                            }
+                        ]
+                    },
+                    {
+                        icon: 'el-icon-setting',
                         index: '1',
                         title: '设置',
                         subs: [

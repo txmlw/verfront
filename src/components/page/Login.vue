@@ -18,6 +18,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         data: function(){
             return {
@@ -38,10 +39,16 @@
         methods: {
             submitForm(formName) {
                 const self = this;
-                self.$refs[formName].validate((valid) => {
+                self.$refs[formName].validate(function (valid){
                     if (valid) {
-                        localStorage.setItem('ms_username',self.ruleForm.username);
-                        self.$router.push('/readme');
+                        axios.post("/ver/power/tuser/login", {"username":self.ruleForm.username,"password":self.ruleForm.password}).then( function (res){
+                            if("success" == res.data.resultCode){
+                                localStorage.setItem('ms_username',self.ruleForm.username);
+                                self.$router.push('/readme');
+                            }else{
+                                self.$message.error(res.data.resultMsg);
+                            }
+                        })
                     } else {
                         console.log('error submit!!');
                         return false;

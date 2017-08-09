@@ -35,9 +35,9 @@ module.exports = {
                     '/api':''
                 }
             },
-            '/queryListJson':{
+            '/tconfig':{
                 target:'http://localhost:9003',
-                changeOrigin:true,
+                changeOrigin:true
                 // pathRewrite:{
                 //     '/api':''
                 // }
@@ -45,6 +45,18 @@ module.exports = {
             '/ms':{
                 target: 'https://www.easy-mock.com/mock/592501a391470c0ac1fab128',
                 changeOrigin: true
+            },
+            '/power':{
+                target:'http://localhost:9005',
+                changeOrigin:true,
+                pathRewrite:{
+                    '/power':''
+                }
+            },
+            //改成直接请求网关，上面的不用了
+            '/ver':{
+                target:'http://localhost:9001',
+                changeOrigin:true
             }
         },
         // CSS Sourcemaps off by default because relative paths are "buggy"

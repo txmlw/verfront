@@ -64,6 +64,18 @@ export default new Router({
             ]
         },
         {
+            path:'/power',
+            component: resolve => require(['../components/common/Home.vue'], resolve),
+            children:[
+                {
+                    path: '/power/role_page',
+                    //component: resolve => require(['../components/page/BaseTable.vue'], resolve)
+                    component: resolve => require(['../components/page/power/role_page.vue'], resolve)
+                }
+            ]
+        }
+        ,
+        {
             path: '/login',
             component: resolve => require(['../components/page/Login.vue'], resolve)
         },
